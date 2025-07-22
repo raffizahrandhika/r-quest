@@ -6,11 +6,6 @@
     <title>R-QUEST - Platform Soal Matematika & UTBK</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
-    
     <style>
         * {
             margin: 0;
@@ -167,13 +162,14 @@
             color: #6b7280;
         }
 
-        /* Main Content Styles (same as before) */
+        /* Main Content Styles */
         .header {
             padding: 0.5rem 0 2rem 0;
             text-align: center;
             background: white;
             color: #0d9488;
             border-bottom: 2px solid #e5e7eb;
+            display: none;
         }
 
         .logo {
@@ -361,6 +357,9 @@
             <button class="login-btn" id="loginBtn">
                 <i class="fas fa-sign-in-alt"></i> Mulai Belajar
             </button>
+            
+            <!-- Tambahkan elemen untuk menampilkan status -->
+            <div id="statusMessage" style="margin-top: 1rem; color: #dc2626; font-weight: 600;"></div>
         </div>
     </div>
 
@@ -421,6 +420,9 @@
         </div>
     </main>
 
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    
     <script>
         // Firebase configuration
         const firebaseConfig = {
@@ -434,8 +436,14 @@
         };
 
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+        try {
+            const app = firebase.initializeApp(firebaseConfig);
+            const db = firebase.firestore();
+            console.log("Firebase berhasil diinisialisasi");
+        } catch (error) {
+            console.error("Error inisialisasi Firebase:", error);
+            document.getElementById('statusMessage').textContent = "Error: Gagal menginisialisasi Firebase. Cek konsol untuk detail.";
+        }
 
         // DOM Elements
         const loginPage = document.getElementById('loginPage');
@@ -446,10 +454,10 @@
         const userNameInput = document.getElementById('userName');
         const displayName = document.getElementById('displayName');
         const displayId = document.getElementById('displayId');
+        const statusMessage = document.getElementById('statusMessage');
 
         // Check if user is already logged in
         if (localStorage.getItem('userId')) {
-            // User is logged in, show main content
             showMainContent(localStorage.getItem('userName'), localStorage.getItem('userId'));
         }
 
@@ -458,29 +466,43 @@
             const userName = userNameInput.value.trim();
             
             if (!userName) {
-                alert('Silakan masukkan nama Anda');
+                statusMessage.textContent = "Silakan masukkan nama Anda";
                 return;
             }
             
+            statusMessage.textContent = "Memproses...";
+            loginBtn.disabled = true;
+            
             try {
-                // Generate a 5-digit user ID (get the latest ID and increment)
+                console.log("Memulai proses pendaftaran...");
+                
+                // Get Firestore instance
+                const db = firebase.firestore();
+                
+                // Generate a 5-digit user ID
                 const usersRef = db.collection('users');
-                const snapshot = await usersRef.orderBy('userId', 'desc').limit(1).get();
+                const querySnapshot = await usersRef.orderBy('userId', 'desc').limit(1).get();
                 
                 let newUserId = '00001'; // Default first ID
                 
-                if (!snapshot.empty) {
-                    const lastUserId = snapshot.docs[0].data().userId;
+                if (!querySnapshot.empty) {
+                    const lastUser = querySnapshot.docs[0].data();
+                    const lastUserId = lastUser.userId;
                     newUserId = String(parseInt(lastUserId) + 1).padStart(5, '0');
+                    console.log("ID terakhir ditemukan:", lastUserId);
                 }
                 
+                console.log("ID baru yang akan digunakan:", newUserId);
+                
                 // Save user data to Firestore
-                await usersRef.add({
+                const docRef = await usersRef.add({
                     userName: userName,
                     userId: newUserId,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                     lastLogin: firebase.firestore.FieldValue.serverTimestamp()
                 });
+                
+                console.log("Data berhasil disimpan dengan ID:", docRef.id);
                 
                 // Save to localStorage
                 localStorage.setItem('userName', userName);
@@ -491,7 +513,8 @@
                 
             } catch (error) {
                 console.error('Error saving user data:', error);
-                alert('Terjadi kesalahan. Silakan coba lagi.');
+                statusMessage.textContent = `Error: ${error.message}`;
+                loginBtn.disabled = false;
             }
         });
 
