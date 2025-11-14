@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-QUEST - Raffi's Quizzes, Exercises, and Smart Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="rquest-body">
+    <!-- Navigation -->
+    <nav class="rquest-nav">
+        <div class="rquest-container">
+            <div class="rquest-nav-content">
+                <div class="rquest-nav-logo">
+                    <h2>R-QUEST</h2>
+                    <p class="rquest-nav-subtitle">Raffi's Quizzes, Exercises, and Smart Training</p>
+                </div>
+                <ul class="rquest-nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#categories">Kategori</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li class="theme-toggle-container">
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+                <div class="rquest-nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="rquest-hero">
+        <div class="rquest-container">
+            <div class="rquest-hero-content">
+                <div class="rquest-hero-text">
+                    <h2 class="rquest-hero-title">Selamat Datang di <span>R-QUEST</span></h2>
+                    <p class="rquest-hero-subtitle">Platform Latihan dan Ujian Interaktif</p>
+                    <p class="rquest-hero-description">Tingkatkan kemampuanmu dengan berbagai latihan soal, kuis, dan tes yang dirancang khusus untuk membantu proses belajar.</p>
+                    <div class="rquest-hero-buttons">
+                        <a href="#categories" class="rquest-hero-btn rquest-hero-btn-primary">Mulai Belajar</a>
+                        <a href="#about" class="rquest-hero-btn rquest-hero-btn-secondary">Tentang Kami</a>
+                    </div>
+                </div>
+                <div class="rquest-hero-image">
+                    <div class="rquest-hero-avatar">
+                        <img src="https://res.cloudinary.com/dy6sxsb26/image/upload/v1763042714/rquest-landing-page_ybx7u9.png" alt="R-QUEST Hero Image" class="rquest-hero-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="rquest-categories">
+        <div class="rquest-container">
+            <h2 class="rquest-section-title">Kategori Latihan</h2>
+            <div class="rquest-categories-grid">
+                <!-- Matematika -->
+                <div class="rquest-category-card">
+                    <div class="rquest-category-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <h3>Matematika</h3>
+                    <p>Latihan soal matematika dari tingkat dasar hingga lanjutan.</p>
+                    <div class="rquest-category-links">
+                        <a href="#" class="rquest-category-link">Latihan Soal</a>
+                        <a href="#" class="rquest-category-link">Tes Matematika</a>
+                    </div>
+                </div>
+                
+                <!-- Sains -->
+                <div class="rquest-category-card">
+                    <div class="rquest-category-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Sains</h3>
+                    <p>Eksplorasi ilmu pengetahuan alam melalui kuis dan eksperimen virtual.</p>
+                    <div class="rquest-category-links">
+                        <a href="#" class="rquest-category-link">Fisika</a>
+                        <a href="#" class="rquest-category-link">Kimia</a>
+                        <a href="#" class="rquest-category-link">Biologi</a>
+                    </div>
+                </div>
+                
+                <!-- Bahasa -->
+                <div class="rquest-category-card">
+                    <div class="rquest-category-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Bahasa</h3>
+                    <p>Tingkatkan kemampuan berbahasa dengan latihan kosakata dan tata bahasa.</p>
+                    <div class="rquest-category-links">
+                        <a href="#" class="rquest-category-link">Bahasa Indonesia</a>
+                        <a href="#" class="rquest-category-link">Bahasa Inggris</a>
+                    </div>
+                </div>
+                
+                <!-- Sejarah -->
+                <div class="rquest-category-card">
+                    <div class="rquest-category-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Sejarah</h3>
+                    <p>Jelajahi peristiwa bersejarah melalui kuis interaktif.</p>
+                    <div class="rquest-category-links">
+                        <a href="#" class="rquest-category-link">Sejarah Indonesia</a>
+                        <a href="#" class="rquest-category-link">Sejarah Dunia</a>
+                    </div>
+                </div>
+                
+                <!-- Teknologi -->
+                <div class="rquest-category-card">
+                    <div class="rquest-category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Teknologi</h3>
+                    <p>Pelajari konsep teknologi dan pemrograman dengan cara menyenangkan.</p>
+                    <div class="rquest-category-links">
+                        <a href="#" class="rquest-category-link">Pemrograman</a>
+                        <a href="#" class="rquest-category-link">Teknologi Informasi</a>
+                    </div>
+                </div>
+                
+                <!-- Logika -->
+                <div class="rquest-category-card">
+                    <div class="rquest-category-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Logika</h3>
+                    <p>Asah kemampuan berpikir kritis dan pemecahan masalah.</p>
+                    <div class="rquest-category-links">
+                        <a href="#" class="rquest-category-link">Tes Logika</a>
+                        <a href="#" class="rquest-category-link">Teka-teki</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Quizzes Section -->
+    <section class="rquest-featured">
+        <div class="rquest-container">
+            <h2 class="rquest-section-title">Kuis Unggulan</h2>
+            <div class="rquest-featured-grid">
+                <div class="rquest-featured-card">
+                    <div class="rquest-featured-badge">Populer</div>
+                    <div class="rquest-featured-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Matematika Dasar</h3>
+                    <p>Kuis untuk menguji kemampuan matematika dasar meliputi aritmatika, aljabar, dan geometri.</p>
+                    <div class="rquest-featured-meta">
+                        <span><i class="fas fa-question-circle"></i> 20 Soal</span>
+                        <span><i class="fas fa-clock"></i> 30 Menit</span>
+                    </div>
+                    <a href="#" class="rquest-featured-btn">Mulai Kuis</a>
+                </div>
+                
+                <div class="rquest-featured-card">
+                    <div class="rquest-featured-badge">Baru</div>
+                    <div class="rquest-featured-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Fisika Modern</h3>
+                    <p>Jelajahi konsep fisika modern dengan kuis interaktif yang menantang.</p>
+                    <div class="rquest-featured-meta">
+                        <span><i class="fas fa-question-circle"></i> 15 Soal</span>
+                        <span><i class="fas fa-clock"></i> 25 Menit</span>
+                    </div>
+                    <a href="#" class="rquest-featured-btn">Mulai Kuis</a>
+                </div>
+                
+                <div class="rquest-featured-card">
+                    <div class="rquest-featured-badge">Menantang</div>
+                    <div class="rquest-featured-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Logika & Penalaran</h3>
+                    <p>Uji kemampuan berpikir logis dan analitis dengan serangkaian soal menantang.</p>
+                    <div class="rquest-featured-meta">
+                        <span><i class="fas fa-question-circle"></i> 25 Soal</span>
+                        <span><i class="fas fa-clock"></i> 40 Menit</span>
+                    </div>
+                    <a href="#" class="rquest-featured-btn">Mulai Kuis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="rquest-about">
+        <div class="rquest-container">
+            <h2 class="rquest-section-title">Tentang R-QUEST</h2>
+            <div class="rquest-about-content">
+                <div class="rquest-about-text">
+                    <h3>Platform Pembelajaran Interaktif</h3>
+                    <p>R-QUEST adalah platform pembelajaran yang dirancang untuk membantu siswa dan pelajar meningkatkan kemampuan akademik melalui latihan soal, kuis, dan tes yang interaktif.</p>
+                    <p>Dengan berbagai kategori dan tingkat kesulitan, R-QUEST menyediakan pengalaman belajar yang menyenangkan dan efektif untuk semua kalangan.</p>
+                    <div class="rquest-about-features">
+                        <div class="rquest-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Soal berkualitas dengan pembahasan lengkap</span>
+                        </div>
+                        <div class="rquest-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Kuis interaktif dengan timer</span>
+                        </div>
+                        <div class="rquest-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Progress tracking untuk memantau perkembangan</span>
+                        </div>
+                        <div class="rquest-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Berbagai tingkat kesulitan dari dasar hingga lanjutan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="rquest-about-image">
+                    <div class="rquest-about-avatar">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="rquest-footer">
+        <div class="rquest-container">
+            <div class="rquest-footer-content">
+                <div class="rquest-footer-main">
+                    <div class="rquest-footer-logo">
+                        <h3>R-QUEST</h3>
+                        <p>Raffi's Quizzes, Exercises, and Smart Training</p>
+                    </div>
+                    <div class="rquest-footer-links">
+                        <div class="rquest-footer-column">
+                            <h4>Menu Utama</h4>
+                            <ul>
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#categories">Kategori</a></li>
+                                <li><a href="#about">Tentang</a></li>
+                            </ul>
+                        </div>
+                        <div class="rquest-footer-column">
+                            <h4>Kategori</h4>
+                            <ul>
+                                <li><a href="#">Matematika</a></li>
+                                <li><a href="#">Sains</a></li>
+                                <li><a href="#">Bahasa</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rquest-social-section">
+                        <h4 class="rquest-social-title">Terhubung Dengan Kami</h4>
+                        <div class="rquest-social-icons">
+                            <a href="https://youtube.com/@raffizahrandhika" class="rquest-social-icon" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://instagram.com/raffizahrandhika" class="rquest-social-icon" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://t.me/raffizahrandhika" class="rquest-social-icon" title="Telegram">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
+                            <a href="https://tiktok.com/@raffizahrandhika" class="rquest-social-icon" title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://x.com/mrffzd" class="rquest-social-icon" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/muhammad-raffi-zahrandhika-7a6537378" class="rquest-social-icon" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rquest-copyright">
+                <p>© 2025 Muhammad Raffi Zahrandhika. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
