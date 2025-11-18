@@ -199,13 +199,13 @@ body {
 
 /* Matahari di kiri - warna teal */
 .theme-toggle .fa-sun {
-    left: 8px;
+    right: 8px;
     color: #0d9488; /* Warna teal */
 }
 
 /* Bulan di kanan - warna teal */
 .theme-toggle .fa-moon {
-    right: 10px;
+    left: 10px;
     color: #0d9488; /* Warna teal */
 }
 
@@ -1140,4 +1140,5 @@ body {
     .rquest-hero-img {
         max-width: 220px;
     }
+
 }
