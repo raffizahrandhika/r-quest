@@ -14,7 +14,6 @@
     --text-muted-light: #64748b;
 }
 
-/* Light Theme Variables */
 [data-theme="light"] {
     --bg-primary: var(--light-bg);
     --text-primary: var(--text-dark);
@@ -30,7 +29,6 @@
     --toggle-border: #cbd5e1;
 }
 
-/* Dark Theme Variables */
 [data-theme="dark"] {
     --bg-primary: var(--dark-bg);
     --text-primary: var(--text-light);
@@ -129,24 +127,18 @@ body {
     transition: transform 0.3s ease;
 }
 
-.rquest-nav-menu a:hover {
-    color: var(--text-primary);
-}
-
 .rquest-nav-menu a:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
 
-/* Navigation Active State */
-.rquest-nav-menu a.active {
-    color: var(--text-primary);
-    font-weight: 700;
-}
-
 .rquest-nav-menu a.active::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+}
+
+.rquest-nav-menu a.active {
+    font-weight: 700;
 }
 
 /* Theme Toggle */
@@ -179,14 +171,10 @@ body {
     background: white;
     transition: all 0.3s ease;
     left: 4px;
-    z-index: 1; /* Bulatan di belakang ikon */
+    z-index: 1;
 }
 
 [data-theme="dark"] .theme-toggle::before {
-    transform: translateX(0);
-}
-
-[data-theme="light"] .theme-toggle::before {
     transform: translateX(30px);
 }
 
@@ -194,26 +182,23 @@ body {
     position: absolute;
     font-size: 14px;
     transition: all 0.3s ease;
-    z-index: 2; /* Ikon di depan bulatan */
+    z-index: 2;
 }
 
-/* Matahari di kiri - warna teal */
 .theme-toggle .fa-sun {
-    right: 8px;
-    color: #0d9488; /* Warna teal */
+    left: 8px;
+    color: #0d9488;
 }
 
-/* Bulan di kanan - warna teal */
 .theme-toggle .fa-moon {
-    left: 10px;
-    color: #0d9488; /* Warna teal */
+    right: 10px;
+    color: #0d9488;
 }
 
 .theme-toggle:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-
 
 .rquest-nav-toggle {
     display: none;
@@ -288,7 +273,6 @@ body {
     margin-bottom: 2rem;
     max-width: 500px;
     line-height: 1.7;
-    text-align: justify;
 }
 
 .rquest-hero-buttons {
@@ -352,7 +336,6 @@ body {
 /* Categories Section */
 .rquest-categories {
     padding: 5rem 0;
-    background: var(--bg-primary);
 }
 
 .rquest-categories-grid {
@@ -449,7 +432,6 @@ body {
 /* Featured Quizzes Section */
 .rquest-featured {
     padding: 5rem 0;
-    background: var(--bg-primary);
 }
 
 .rquest-featured-grid {
@@ -578,7 +560,6 @@ body {
 /* About Section */
 .rquest-about {
     padding: 5rem 0;
-    background: var(--bg-primary);
 }
 
 .rquest-about-content {
@@ -603,7 +584,6 @@ body {
     margin-bottom: 1.5rem;
     line-height: 1.7;
     font-size: 1.05rem;
-    text-align: justify;
 }
 
 .rquest-about-features {
@@ -714,9 +694,7 @@ body {
 .rquest-footer-logo p {
     color: var(--footer-muted);
     font-size: 0.9rem;
-    letter-spacing: 0.5px;
     max-width: 300px;
-    text-align: justify;
 }
 
 .rquest-footer-links {
@@ -785,15 +763,9 @@ body {
     text-decoration: none;
 }
 
-.rquest-social-icon:focus,
-.rquest-social-icon:active {
-    text-decoration: none;
-}
-
 .rquest-social-icon:hover {
     transform: translateY(-3px);
     background: var(--primary-gradient);
-    text-decoration: none;
 }
 
 .rquest-copyright {
@@ -805,24 +777,49 @@ body {
 .rquest-copyright p {
     color: var(--footer-muted);
     font-size: 0.75rem;
-    letter-spacing: 0.5px;
     margin: 0.5rem 0;
-    text-align: center !important;
+}
+
+/* Under Construction Banner */
+.rquest-construction-banner {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: sticky;
+    top: 70px;
+    z-index: 999;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(245, 158, 11, 0.3);
+}
+
+.rquest-construction-banner p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.rquest-construction-banner i {
+    font-size: 1rem;
+}
+
+[data-theme="dark"] .rquest-construction-banner {
+    background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
 }
 
 /* Responsive Styles */
 @media (max-width: 900px) {
-    .rquest-hero-content {
+    .rquest-hero-content,
+    .rquest-about-content {
         flex-direction: column;
         text-align: center;
     }
     
     .rquest-hero-description {
         margin: 0 auto 2rem auto;
-    }
-    
-    .rquest-about-content {
-        flex-direction: column;
     }
     
     .rquest-footer-main {
@@ -846,7 +843,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Navigation */
     .rquest-nav-menu {
         position: fixed;
         top: 0;
@@ -869,10 +865,8 @@ body {
     
     .rquest-nav-toggle {
         display: flex;
-        z-index: 100;
     }
     
-    /* Header */
     .rquest-nav-logo h2 {
         font-size: 1.3rem;
     }
@@ -909,19 +903,12 @@ body {
         width: auto;
         min-width: 140px;
         text-align: center;
-        flex: 0 0 auto;
     }
     
     .rquest-hero-image {
-        max-width: 300px;
         flex: 0 0 300px;
     }
     
-    .rquest-hero-img {
-        max-width: 280px;
-    }
-    
-    /* About Section */
     .rquest-about-image {
         flex: 0 0 200px;
     }
@@ -932,7 +919,6 @@ body {
         font-size: 3rem;
     }
     
-    /* Featured Cards */
     .rquest-featured-card {
         padding: 1.5rem;
     }
@@ -942,7 +928,6 @@ body {
         gap: 0.8rem;
     }
     
-    /* Footer */
     .rquest-footer-logo h3 {
         font-size: 1.3rem;
     }
@@ -956,18 +941,9 @@ body {
     }
     
     .rquest-footer-links {
-        display: flex;
         flex-direction: row;
         gap: 3rem;
-        width: 100%;
         justify-content: center;
-        align-items: flex-start;
-    }
-    
-    .rquest-footer-column {
-        flex: 0 0 auto;
-        min-width: 140px;
-        text-align: left;
     }
     
     .rquest-social-icons {
@@ -980,49 +956,44 @@ body {
         font-size: 0.9rem;
     }
     
-    .rquest-copyright p {
-        text-align: center !important;
+    .rquest-construction-banner {
+        font-size: 0.8rem;
+        padding: 8px 0;
+        top: 60px;
     }
 }
 
 @media (max-width: 600px) {
-    /* Main Content */
     .rquest-section-title {
         font-size: 1.5rem;
         margin-bottom: 2rem;
     }
     
-    /* Card & Content Typography */
-    .rquest-card,
-    .rquest-category-card {
+    .rquest-category-card,
+    .rquest-featured-card {
         padding: 1.5rem;
     }
     
-    .rquest-card h3,
     .rquest-category-card h3,
     .rquest-featured-card h3 {
         font-size: 1.2rem;
         margin-bottom: 0.8rem;
     }
     
-    .rquest-card p,
     .rquest-category-card p,
     .rquest-featured-card p {
         font-size: 0.9rem;
         line-height: 1.5;
     }
     
-    /* Layout Adjustments */
     .rquest-categories-grid,
     .rquest-featured-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
-    /* Hero Buttons */
     .rquest-hero-buttons {
         flex-direction: row;
-        align-items: center;
         justify-content: center;
     }
     
@@ -1032,33 +1003,23 @@ body {
         font-size: 0.95rem;
     }
     
-    /* Footer Links */
     .rquest-footer-links {
         flex-direction: row;
         gap: 2rem;
         justify-content: center;
-        width: 100%;
     }
     
     .rquest-footer-column {
-        flex: 0 0 auto;
         min-width: 120px;
     }
     
-    /* Navigation Menu */
     .rquest-nav-menu {
         width: 250px;
     }
     
-    /* My Journey Font Size */
     .rquest-about-text p {
         font-size: 0.95rem;
         line-height: 1.6;
-    }
-    
-    /* Copyright */
-    .rquest-copyright p {
-        text-align: center !important;
     }
 }
 
@@ -1097,15 +1058,12 @@ body {
         flex-direction: row;
         gap: 1.5rem;
         justify-content: center;
-        flex-wrap: nowrap;
     }
     
     .rquest-footer-column {
-        flex: 0 0 auto;
         text-align: center;
     }
     
-    /* Tombol tetap berjejer */
     .rquest-hero-buttons {
         flex-direction: row;
         gap: 0.8rem;
@@ -1117,11 +1075,6 @@ body {
         padding: 0.6rem 1rem;
     }
     
-    .rquest-copyright p {
-        text-align: center !important;
-    }
-    
-    /* Featured Cards pada layar sangat kecil */
     .rquest-featured-card {
         padding: 1.2rem;
     }
@@ -1131,7 +1084,6 @@ body {
         font-size: 0.85rem;
     }
     
-    /* Hero Image pada layar sangat kecil */
     .rquest-hero-image {
         flex: 0 0 250px;
         max-width: 250px;
@@ -1140,5 +1092,14 @@ body {
     .rquest-hero-img {
         max-width: 220px;
     }
-
+    
+    .rquest-construction-banner {
+        font-size: 0.75rem;
+        padding: 6px 0;
+        top: 56px;
+    }
+    
+    .rquest-construction-banner i {
+        font-size: 0.9rem;
+    }
 }
