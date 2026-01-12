@@ -196,3 +196,32 @@ themeToggle.addEventListener('click', function() {
         homeLink.classList.add('active');
     }
 });
+
+// Atur top position banner berdasarkan height navigation
+document.addEventListener('DOMContentLoaded', function() {
+    const nav = document.querySelector('.rquest-nav');
+    const banner = document.querySelector('.rquest-construction-banner');
+    
+    if (nav && banner) {
+        function updateBannerPosition() {
+            const navHeight = nav.offsetHeight;
+            banner.style.top = navHeight + 'px';
+        }
+        
+        // Update saat load
+        updateBannerPosition();
+        
+        // Update saat resize
+        window.addEventListener('resize', function() {
+            setTimeout(updateBannerPosition, 100);
+        });
+        
+        // Update jika nav berubah (menu mobile dibuka)
+        const navToggle = document.querySelector('.rquest-nav-toggle');
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                setTimeout(updateBannerPosition, 300);
+            });
+        }
+    }
+});
